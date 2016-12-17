@@ -67,4 +67,16 @@ function test(testData) {
   console.log("ok", "(" + testTime, "sec)");
 
   console.log("precision:", numCorrect / testData.length);
+  saveClassifier(classifier);
+}
+
+
+function saveClassifier(classifier) {
+  classifier.save('classifier.json', function(err, classifier) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("classifier saved to disk");
+    }
+  });
 }
